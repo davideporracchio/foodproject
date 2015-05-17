@@ -1,0 +1,25 @@
+This is a SpringBoot project
+
+Too build use
+./gradlew clean build
+
+To run 
+./gradlew run
+
+
+Application.properties contains some parameters like the server port (default 9000)
+Datas are persisted in H2 DB
+
+Data.sql 
+contains the sql scripts to load the DB when application starts.
+
+
+To check the current statement for a user with a fidelity card
+curl "localhost:9000/point/CARDSERIALNUMBER"
+i.e. "localhost:9000/point/1"
+
+
+To update the current statement 
+curl -X PUT -d AMOUNT "localhost:9000/point/CARDSERIALNUMBER"
+i.e. curl -X PUT -d 10 "localhost:9000/point/1"
+where 10 is the amount spent and 1 is the cardserialnumber
